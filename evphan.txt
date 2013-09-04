@@ -1,0 +1,13 @@
+Question 1)
+Your experience with web archtecture. Have you written HTML before? Written Javascript? etc.
+
+Answer 1)
+My first job out of college was at a lead generation company. I was tasked with the responsibility of search engine optimization (seo). So I did very light html coding for gobankingrates.com and goinsurancerates.com, such as: marking up text, creating anchor text links, and creating meta tags for nofollows and noindex. In the process of optimizing the websites, I also helped with optimizing the websites' web architecture where I and my team planned the sitemap of the two sites, laying out the content and brainstorming the best way to optimizing the content for organic seo.
+
+Last semester, I took a data visualization class at the ischool and was introduced to javascript. I know some very basic javascript, but not enough to do very complex programing. This semester I'm really looking forward to learning javascript and python.
+
+Question 2)
+What are your favorite features from at least 2 browsers?
+
+Answer 2)
+I like Google Chrome's book marking feature, I think that it is really cool. I like it a lot because the UX is really simple. All it takes is just one click on the star on the browser and adding the page to the folder I want and I'm done. I don't need to look very hard to find the book marking tool. I also like mozilla firefox plug in feature. I found it really helpful when I was working in seo, since I used the firebug add on very often to simulate my changes.
