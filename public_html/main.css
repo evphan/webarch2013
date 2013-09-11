@@ -1,0 +1,8 @@
+  h1 {text-align: center}
+  h3 {text-indent: 20px}
+  h4 {text-indent: 40px}
+  p {text-indent: 20px}
+  ul {font-style: italic; color: green}
+  #details {color: maroon}
+  p .names {text-decoration: underline}
+  body {background: silver; border: solid gray; margin: 5em; padding: 2em }         /* all margins set to 5em */
