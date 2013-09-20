@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Madlib!</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+    </head>
+    <body>
+		<form id="madlib-input">
+			<label> First person or someone you know: <input type="text" name="firstname"><br></label>
+			Is the person male or female: <label><input type="radio" name="sex" value="girl">girl</label>
+										<label><input type="radio" name="sex" value="boy">boy<br></label>
+			<label>Second person you know: <input type="text" name="secondname"><br></label>
+			<label>Pick a number: <input type="text" name="number"><br></label>
+			What's the day like outside:<label> <input type="radio" name="weather" value="burning hot">burning hot</label>
+										<label><input type="radio" name="weather" value="nice and cool">nice and cool<br></label>
+			Choose your preferred communication method: <select id="myselect">
+								<option value="running">email</option>
+								<option value="postcard">postcard</option>
+								<option value="letter">letter</option>
+								<option value="text">text</option>
+								</select><br>
+			<label>Think of an animal: <input type="text" name="animal"><br></label>
+			Check a verb:<label><input type="checkbox" name="lick" value="licking">licking</label>
+								<label>	<input type="checkbox" name="pounce" value="pouncing">pouncing</label>
+								<label>	<input type="checkbox" name="bit" value="biting">biting<br></label>
+								<label>	<input type="submit" value="My Mad Lib!"> Click here</label>
+		</form>
+
+		<div id="madlib-output">
+		</div>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>
+			function validate_form(event){
+				var success=true;
+				var firstname=$("input[name='firstname']").val();				
+				if (firstname==null || firstname=="")
+					success=false;
+				var secondname=$("input[name='secondname']").val();			
+				if (secondname==null || secondname=="")
+					success=false;					
+				var animal=$("input[name='animal']").val();
+				if (animal==null || animal=="")
+					success=false;
+				var sex=$("input[name='sex']").val();
+				if (sex==null || sex=="")
+					success=false;
+				var number=$("input[name='number']").val();
+				if (number==null || number=="" || isNaN(number))
+					success=false;
+				var weather=$("input[name='weather']").val();
+				if (weather==null || weather=="")
+					success=false;
+				var chosen_value=$("#myselect option:selected").text();
+				if (chosen_value==null || chosen_value=="")
+					success=false;
+				var verb=$("input[type='checkbox']:checked").val();
+				if (verb==null || verb=="")
+					success=false
+				if (success==false){
+					$("div#madlib-output").empty();
+					($("div#madlib-output").append("<p> You must fill out all fields to see your story. Make sure the number field has a number in it.</p>"));
+				}
+				else {
+					$("div#madlib-output").empty();
+					$("div#madlib-output").append("<p>" + firstname + " has been married to " + secondname + " for " + number + " years and they have a baby " + sex + " together. They live in Berkeley, CA. The family vacation to Australia was coming up but " + firstname + " had to stay back a few days due to work. So " + secondname +" and their baby "+sex+" went first. As soon as "+secondname+" arrived at the destination "+secondname+" sent a "+chosen_value+" to "+firstname+" to say they had arrived safely. Unfortunately, "+secondname+" mistyped and sent the "+chosen_value+" to the wrong person. The recipient of the "+chosen_value+" who had recently lost a spouse saw the "+chosen_value+". The "+chosen_value+" went something like this: 'Hi Honey, everything is ready for your arrival. The weather here is "+weather+". Can't wait to see you on the other side!' After reading the "+chosen_value+" the widow passed out next to a "+animal+". The "+animal+" decided to wake the widow up by "+verb+" the widow on the face.</p>"); 
+				}
+				event.preventDefault();
+			}
+			function main_function(){$("input:submit").click(validate_form);}
+			$(document).ready(main_function);
+			
+		</script>
+		
+    </body>
+</html>
+<form>
+
+</form>
