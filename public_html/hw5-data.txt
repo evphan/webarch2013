@@ -1,0 +1,38 @@
+1. What HTTP command is used to make the /home resource respond with your full name (including spaces), the title of the page should be the full title of this class.
+
+GET /home?title=Web%20Architecture%20253&name=Evie%20Phan HTTP/1.1
+Host: 127.0.0.1
+
+2. Use a PUT request to set the redirect target of http://people.ischool.berkeley.edu/~<USER>/server/wiki
+How do you verify this change?
+
+PUT /wiki HTTP/1.1
+Host: 127.0.0.1
+Content-length: 34
+Content-Type: application/x-www-form-urlencoded
+
+url=http://www.leagueoflegends.com
+
+I can veify by going to http://127.0.0.1:5000/wiki in my browser, it should redirect to leagueoflegends.com.
+
+3. Use a POST to update the redirect target of http://people.ischool.berkeley.edu/~<USER>/server/wiki to a another new location.
+
+POST /wiki HTTP/1.1
+Host: 127.0.0.1
+Content-length: 29
+Content-Type: application/x-www-form-urlencoded
+
+url=http://www.guildwars2.com
+
+
+4. Update app.py to correctly return an image from http://people.ischool.berkeley.edu/~<USER>/server/i253
+Use your browser to test
+Including the Content-Type in your submission
+
+I change this line in app.py
+
+    # resp.headers['Content-Type'] = '...'
+
+It should say
+
+    resp.headers['Content-Type'] = 'image/png'
