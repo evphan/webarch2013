@@ -1,0 +1,24 @@
+Homework 6 - DNS
+1. What series of IPs would a recursive DNS server use to find the address of m.yelp.com?
+	Answer:
+	a.root-servers.net 198.41.0.4
+	a.gtld-servers.net 192.5.6.30
+	ns1.p18.dynect.net 208.78.70.18
+	
+2. What are the IP addresses of m.yelp.com?
+	Answer:
+	198.51.132.234
+	199.255.189.234
+	198.51.132.34
+	199.255.189.34
+
+3. Do IP packets leave the Berkeley network when traveling to amplab.cs.berkeley.edu? Include the command and output.
+	Answer:
+	No, IP packets stay inside the Berkeley network
+	harbinger:~$ traceroute amplab.cs.berkeley.edu
+	traceroute to amplab.cs.berkeley.edu (128.32.37.248), 30 hops max, 60 byte packets
+	1  g3-35.inr-211-srb.Berkeley.EDU (128.32.78.3)  0.982 ms  1.005 ms  1.022 ms
+	2  t6-1.inr-202-reccev.Berkeley.EDU (128.32.255.126)  0.928 ms  0.986 ms  1.003 ms
+	3  evans-eecs-br-10GE.EECS.Berkeley.EDU (128.32.255.54)  2.225 ms  2.230 ms  2.223 ms
+	4  soda-10g-edge.EECS.Berkeley.EDU (169.229.59.242)  3.861 ms  3.940 ms  3.958 ms
+	5  www-research2.CS.Berkeley.EDU (128.32.37.248)  1.680 ms !X  1.739 ms !X  1.764 ms !X
