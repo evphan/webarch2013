@@ -1,0 +1,16 @@
+webarch homework 7 - cURL
+
+1. What’s the diference between Yelp’s homepage compressed and uncompressed?
+Answer:
+To get yelp's homepage compressed file I used:
+curl  -H "Accept-Encoding: gzip" -o compressed_yelp.html http://www.yelp.com
+
+To get yelp's homepage uncompressed file I used:
+curl -o yelp.html http://yelp.com
+
+When Yelp's homepage is compressed it looks like a bunch of jumble stuff.
+
+When Yelp's homepage is uncompressed it looks like a normal web page.
+
+When I unzipped yelp's homepage compressed file, it has 2929 lines where as the original uncompressed file has 2958 lines. The section recent activities has different user content. In general though, I don't see much difference.
+
