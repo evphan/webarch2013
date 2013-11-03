@@ -1,0 +1,44 @@
+HW8 - DB
+
+1. How many links were added afer 2013-10-14?
+
+mysql> select count(long_url) from links where links.created > '2013-10-14';
++-----------------+
+| count(long_url) |
++-----------------+
+|              10 |
++-----------------+
+
+2. How many links that were added before 2013-10-14 have fewer than 40 hits?
+
+mysql> SELECT COUNT(long_url) FROM links WHERE links.created<'2013-10-14' AND links.hit_count<40;
++-----------------+
+| COUNT(long_url) |
++-----------------+
+|               5 |
++-----------------+
+
+3. Insert your own URL with a date before 2013-10-14 with greater than 40 hits.
+
+mysql> insert into links (long_url, short_url, hit_count, created) values('eviephan.com', 'eevee', 50, '2013-09-01');
+Query OK, 1 row affected (0.00 sec)
+
+4. Is it possible that someone querying the database at the same time could see your insert partially complete (eg. only see some fields filled in)? What database property is this related to?
+
+No, this is related to the atomicity property.
+
+5. Increment the hit_count for only your new row. What is the new count?
+
+mysql> UPDATE links SET links.hit_count = links.hit_count + 1 WHERE links.long_url = "eviephan.com";
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT links.hit_count FROM links WHERE links.long_url ="eviephan.com";
++-----------+
+| hit_count |
++-----------+
+|        51 |
++-----------+
+1 row in set (0.00 sec)
+
+
