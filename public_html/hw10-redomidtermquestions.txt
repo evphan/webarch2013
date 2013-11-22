@@ -1,0 +1,102 @@
+Homework 10 - Redue Questions from Midterm
+Question 1) Draw the DOM tree for the following HTML5 code
+answer: please refer to attached image. 
+-On the exam, I forgot to add the extra table header tag (<th>) and I misplaced the second <td> tag because I had put it under <table>, but it was supposed to be under the <tr> tag.
+	
+Question 2) Markdown is another HyperText Language. The following links the text "this link" to the URL http://example.net. Write the equivalent HTML below.
+answer: <a href=http://example.net> this link </a>
+-On the exam, I read the question wrong and accidently wrote down "example.net" where "this link" should have been.
+
+Question 3) Mark Semantic Meaning (circle the tags which have semantic meaning independent of display style.)
+	answer:
+a.	strong (circle)
+b.	i
+c.	blink
+d.	tr (circle)
+e.	div
+f.	b
+g.	table (circle)
+-On the exam I left out div. I think it is correct, but it was accidentally marked as incorrect on my exam. The website http://www.w3schools.com/html/html5_semantic_elements.asp
+says that the tags <div> and <span> are non-semantic elements.
+A semantic element is an element with meaning. It describes its meaning to the browser and the developer.
+Examples of non-semantic elements: <div> and <span> - tells nothing about its content.
+Examples of semantic elements: <form>, <table>, and <img> - clearly defines its content.
+
+Question 6) Fill in the blanks for a form used to collect user data
+answer:
+	<form action="user/search">
+		<label for="name">Full name</label>
+		<input type="text" id="name">
+		<label for="male">Male</label>
+		<input type="radio" name="gender" id="male" value="male"><br>
+		<label for="female">Female</label>
+		<input type="radio" name="gender" id="female" value="female"><br>
+		<input type="submit" name="click" value="Search!">
+	</form>
+-On the exam, I filled out several input types incorrectly. However, in one case I filled it in correctly, but was still marked as incorrect: the input type for the tag with id "name" should be "text" (just as I wrote) and not "radio" because the "text" is referring that "Full name" should be text.
+ 
+Question 7) Write the URL that the browser requests when the previous form is clicked (*the form was loaded on the page http://example.com/app/search.html; *the values filled in were "Jim Blomo", "male")
+answer: http://example.com/app/user/search?gender=male&click=Search%21
+-There is a problem with this form that I didn't notice until now. The input tag for the full name doesn't have a name attribute, so the browser does not include it in the URL. To correct this, use: <input type="text" id="name" name="FullName">. If this is done, the browser will use this url: http://example.com/app/user/search?FullName=Jim+Blomo&gender=male&click=Search%21 
+-On the exam, I couldn't remember what the URL looked exactly. My explanation on the exam was that the submit url would be the link http://example.com/ follow by submit and the fields that were filled into the form. Conceptually, this is correct but I got it wrong because I could not remember the exact technical details. The "%21" code in the url stands for exclamation mark. The code for spacing is generally "%20" but when I put the form in chrome and firefox the space in the url is actually "+". 
+
+Question 8) Blink! Write out the psudo-javascript to make the word "blink" automatically and continuously alternate colors between white and red :slide:answer:
+<div> We're almost emulating the <span id="blink">blink</span> tag! </div>
+	Answer:
+	step 1) run a loop
+	step 2) get the css color property of element blink
+	step 3) if color is red then set css color property to white; otherwise set it to red
+
+Question 9) Fill in the blanks for the next HTTP statement made after a browser receives the following response
+	Answer:
+	GET /app/search.html HTTP/1.1
+	Host: example.com
+
+Question 14) Fill in the missing words describe TCP
+	Answer:
+Correctness
+	Ensures bits in data packet are same as those sent by using checksum
+Reliability
+	Ensures a packet reached its destination by requiring the receiver to send back an ACK (acknowledge receipt)
+Ordering
+	Ensures packets are read in the same order they were sent by using a packet sequence numbering
+Congestion
+	On sending failures back off or wait
+	
+Question 15) True/False
+	•	DNS uses on UDP- True; DNS relies on UDP protocol
+	•	HTTP uses on DNS- False; neither relate to each other
+	
+Question 16) A web page is a representation of a resource identified and located by url. 
+-On the exam, I got the first part corrrect but the second part I got wrong because I put in broswer instead. I got confused with the wording of the question "located."
+
+Question 17) Circle the headers used to ensure data in a POST request is handled correctly
+	answer:
+	•	host (circle)
+	•	content-length (circle)
+	•	date
+	•	server
+	•	content-type (circle)
+	•	location
+	•	accept
+-On the exam, I circled date and server which is incorrect because you dont need to post date or server.
+
+Question 18) Fill in the request to PUT data to a webserver
+	answer:
+	PUT /student HTTP/1.1
+	Host: www.website.com
+	Content-Type: application/x-www-form-urlencoded
+	Content-Length: <any number>
+	name=Evie%20Phan&class=i253
+
+Question 19) How are cookies used in the login process?
+	Answer:
+	A user goes onto a website. The website's webserver sets the cookie in the header of the http reponse when you visit the website like this:
+	Set-Cookie: name=value
+	The cookie has an expiration date. If the next time the user goes back onto that site and the expiration date has not expired yet, then the browser requests the page, it will include in the request header the value of the cookie like this:
+	GET /index.html HTTP/1.1
+	Host: www.website.com
+	Cookie: name=value 
+	This way the web server will be able to recognize that it is the same user. For security, the web server can encrypt the cookie so it is not understood by anyone except the server.
+
+
