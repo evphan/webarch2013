@@ -13,7 +13,7 @@ from sys import stdout
 
 
 def csv_readline(line):
-    """Given a sting CSV line, return a list of strings."""
+    """Given a string CSV line, return a list of strings."""
     for row in csv.reader([line]):
         return row
 
@@ -32,13 +32,13 @@ def main():
         if cell[0] == 'C':
             ###
             # FILL IN by replacing below:
-            pass
+            current_user = cell[1]
             # What should we update when we see a new 'C' row?
             ##/
         elif cell[0] == 'V':
             ###
             # FILL IN by replacing below:
-            pass
+            cell[2] = current_user
             # What should we update when we see a new 'V' row?
             ##/
 
